@@ -22,8 +22,6 @@ import android.provider.Settings
 import io.chaldeaprjkt.gamespace.utils.GameModeUtils
 import javax.inject.Inject
 
-import lineageos.providers.LineageSettings
-
 class SystemSettings @Inject constructor(
     context: Context,
     private val gameModeUtils: GameModeUtils
