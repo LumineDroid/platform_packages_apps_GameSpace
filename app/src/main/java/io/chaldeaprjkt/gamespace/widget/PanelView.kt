@@ -37,6 +37,19 @@ class PanelView @JvmOverloads constructor(
         isClickable = true
         isFocusable = true
     }
+    
+    fun updateTranslationY() {
+        val targetMargin = appSettings.y
+        val params = layoutParams as ViewGroup.MarginLayoutParams
+        val animator = ValueAnimator.ofInt(params.topMargin, targetMargin)
+        animator.duration = 300L
+        animator.interpolator = DecelerateInterpolator()
+        animator.addUpdateListener { valueAnimator ->
+            params.topMargin = valueAnimator.animatedValue as Int
+            layoutParams = params
+        }
+        animator.start()
+    }
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
